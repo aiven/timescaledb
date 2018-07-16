@@ -52,12 +52,12 @@ jobs:
         - PG_VERSION=10.0 PG_GIT_TAG=REL_10_0
         - secure: "nJvlOf7ALjFlSi6bn1aTrDXVagci1t+5L6MmDeroRAs5WYcjvm5q4xtkPTpQElNZjqWZPcyG5ja4RgDgJGfhvNkuiQcZtLJbD9WFqHCBdmRq2fHo203wZ8IcFCrgMkfxQIIQE2cXfrWV9KYSibPZrlj5r2fKeafFMn/e6g4fGTTMBxUlwpngaXJ6LPAmwnAx1sASmZGK81QSYW0JG/hd1ITY5f66eTUtOc08/NGKvrGSAihliRmvuo1zRSbYKm/BK1FZYPDYh8PU+bLdOZYAD6od7ISk5+8WmfFfStwG17zsLAVjl1Mwb14pMjJ4T4ItNOj7QFFBSsQQPbRK5X6HK5dyI9lRNg05qwDOtlVH3W6B15q1x3Hqbzsb34ZYjxo9uLgGahAjsn3jNRrIA7pfUaQzTvKKODY1NI3N5PMiDksL3vgFKIbf1TFIltwwAgRmzea4eVVEeVHOlzzNwSoTnzH2VQxGYxiQdCglFElpA03dvNnDKsRgkW1LjJSjyV8aB6R3Vh7MS8y/ahPOCVwt++jcKTfYJOoZvfDpwuWcW5+zZXwmY2Wh31jGp03icpsDh5M1svgEzW9wynXSv+h3mANV+iYt/SCHujiEL4ZRTCE3u8NDWGCknYMXNUP9DilEgA6nx4fiH1sNlps5BoMr5Lv37G6TI2+SqeAJI55Y81I="
         - secure: "BTEfIO+Zmfxl8NtnXkPaBOTSNPhkCYGGHJW40iMsKl10na6hUAoxdcN9VYhO35449Sk7nLFYy+m9WZNNaeceU0LX8DvfXZf2QHeaCJOpiEKB8TZR5658n8gJrQyXGSTnCsNBf5kN893w/Wo6j4CQXv3H9XCW4ytsKajHazsFUB91UlWpGsuh+OreoNyeZAwGlhhgxnZZCL5u61Y//N5CekHK6s0dMOp4dd2iSyDn49AEtJs02DjZ/EzWU/F8sg6df4hYEOr+8nMZ97c6O6ktYuzKbkzfCUt4UW5eB4M9xq2QNfFU9G3q6ya5ja90vvYg0cTjLuc1JMjByN9oEbYNjQJMlrEG4cHn3MC2xcELORMYrI4hdfGDUIr7u+qFfAlWOYDnYwpmkDIfnUCFFoH8vNqgtdLiLNch3U7j014wAE8ismtOJFSzPBM/Q4FaVcUO7BSpUsh1lx0gGm94cUeu3ZHP3POD+8knB6Hcv8AsJyPVxQGzzLqTEPlHq+YmLt4s79VpUoCBj/5NuRczVjP9tfrTXHCxnoEGIfyv+ExztVbyeP060PxfTJh7Wv8O/l/+ceWCWohtrziMWihi9LeozoAjgvh1wZQMa6hp+ts/cyBuWHv8oLfZx5BHLVOoiy4w3+To5lZwoNt80jJ4RsvuqImy0RvVcbiHScR0q/YrlZA="
-      before_script:
+      before_install:
         # clone valgrind test script
         - git clone https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git /tmp/tsdb-dev-tools
       script:
         - cd /tmp/tsdb-dev-tools/
-        - TIMESCALE_DIR=$TRAVIS_BUILD_DIR travis_wait 30 bash -x ./test_valgrind.sh
+        - TIMESCALE_DIR=$TRAVIS_BUILD_DIR bash -x ./test_valgrind.sh
 
     - stage: test
       env:
