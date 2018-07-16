@@ -60,7 +60,7 @@ jobs:
       script:
         - cd /tmp/tsdb-dev-tools
         - docker images
-        - travis_wait 30 bash -x "docker images && ./test_valgrind.sh"
+        - bash -x "docker images && ./test_valgrind.sh"
 
     - stage: test
       env:
