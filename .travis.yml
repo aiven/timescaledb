@@ -55,8 +55,9 @@ jobs:
       before_script:
         # clone valgrind test script
         - pwd
-        - git clone --verbose https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git $TRAVIS_BUILD_DIR/tsdb-dev-tools
       script:
+        - pwd
+        - git clone --verbose https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git tsdb-dev-tools
         - cd ./tsdb-dev-tools/; bash -x ./test_valgrind.sh
 
     - stage: test
