@@ -59,8 +59,9 @@ jobs:
         - git clone https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git /tmp/tsdb-dev-tools
       script:
         - cd /tmp/tsdb-dev-tools
-        - docker images
-        - travis_wait 30 bash -x -c './test_valgrind.sh &> /tmp/val-build.log'
+        - bash -c 'while true; do echo -e "keepalive\n"; sleep 60; done' &
+        - bash -x -c './test_valgrind.sh'
+        - kill $(jobs -p)
 
     - stage: test
       env:
