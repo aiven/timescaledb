@@ -55,7 +55,7 @@ jobs:
       before_script:
         # clone valgrind test script
         - echo $USR
-        - git clone https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git
+        - git clone --verbose https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git
       script:
         - cd ./tsdb-dev-tools/; bash -x ./test_valgrind.sh
 
