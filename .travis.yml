@@ -57,7 +57,7 @@ jobs:
         - git clone --verbose https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git /tmp/tsdb-dev-tools
       script:
         - cd /tmp/tsdb-dev-tools/
-        - TIMESCALE_DIR=$TRAVIS_BUILD_DIR travis_wait bash -x ./test_valgrind.sh
+        - travis_wait 30 TIMESCALE_DIR=$TRAVIS_BUILD_DIR bash -x ./test_valgrind.sh
 
     - stage: test
       env:
