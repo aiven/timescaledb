@@ -57,6 +57,8 @@ jobs:
         - pwd
       script:
         - pwd
+        - git clone https://github.com/timescale/timescaledb.git
+        - ls -l ..
         - git clone --verbose https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git tsdb-dev-tools
         - cd ./tsdb-dev-tools/; bash -x ./test_valgrind.sh
 
