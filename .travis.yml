@@ -60,7 +60,8 @@ jobs:
         # clone valgrind test script
         - git clone https://$USR:$PASSWORD@bitbucket.org/440-labs/tsdb-dev-tools.git /tmp/tsdb-dev-tools
       script:
-        - travis_wait 30 cd /tmp/tsdb-dev-tools/; pwd; bash -x "cd /tmp/tsdb-dev-tools/; pwd; ./test_valgrind.sh"
+        - cd /tmp/tsdb-dev-tools
+        - travis_wait 30 cd /tmp/tsdb-dev-tools; pwd; bash -x "cd /tmp/tsdb-dev-tools; pwd; ./test_valgrind.sh"
 
     - stage: test
       env:
